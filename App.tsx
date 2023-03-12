@@ -7,8 +7,6 @@ import Router from './Router';
 
 export default function App() {
   return (
-    //crazy comment
-
     <NavigationContainer>
       <AuthProvider>
         <Router />
