@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import React from 'react';
 import { StackNavigationProp } from '../Router';
-import { supabase } from '../supabaseConfig';
+// import { supabase } from '../supabaseConfig';
 
 const Login = ({ navigation }: StackNavigationProp) => {
   return (
@@ -15,20 +15,7 @@ const Login = ({ navigation }: StackNavigationProp) => {
 
       <TouchableOpacity
         className="bg-white w-[290px] h-[60] items-center justify-center rounded-2xl shadow-md mb-4"
-        onPress={async () => {
-          const { data, error } = await supabase.auth.signInWithOtp({
-            phone: '+18456676389',
-            options: {
-              shouldCreateUser: false,
-            },
-          });
-
-          if (error) {
-            Alert.alert(error.message);
-            return;
-          }
-          console.log(data);
-        }}
+        onPress={() => navigation.navigate("PhoneSignIn")}
       >
         <Text className="font-semibold text-lg">
           Sign in with your phone 📞

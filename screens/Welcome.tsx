@@ -1,8 +1,21 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { StackNavigationProp } from '../Router';
+import useAuth from '../components/AuthProvider';
 
 const Welcome = ({ navigation }: StackNavigationProp) => {
+  const { currentUser } = useAuth()
+  const handleAuth = async () => {
+    if (currentUser) {
+      navigation.navigate("Home")
+    }
+    else {
+      navigation.navigate("Login")
+    }
+  }
+
+
+
   return (
     <View className="flex-1 bg-theme-green items-center">
       <Image
@@ -16,7 +29,7 @@ const Welcome = ({ navigation }: StackNavigationProp) => {
 
       <TouchableOpacity
         className="mt-40 bg-white py-4 px-4 rounded-2xl shadow-md"
-        onPress={() => navigation.navigate('Login')}
+        onPress={handleAuth}
       >
         <Text className="text-lg font-medium tracking-widest">
           Let's get groovy 🎸

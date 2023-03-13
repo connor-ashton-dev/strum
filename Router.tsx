@@ -3,7 +3,6 @@ import {
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
 
-import { View, Text } from 'react-native';
 import React from 'react';
 import useAuth from './components/AuthProvider';
 import Welcome from './screens/Welcome';
@@ -14,6 +13,9 @@ import PhoneConfirm from './screens/Register/PhoneConfirm';
 import RegisterPt2 from './screens/Register/RegisterPt2';
 import RegisterPt3 from './screens/Register/RegisterPt3';
 import RegisterPt4 from './screens/Register/RegisterPt4';
+import PhoneSignIn from './screens/Login/PhoneSignIn';
+import PhoneSignInConfirm from "./screens/Login/PhoneSignInConfirm"
+import Home from './screens/Home';
 export type StackParamList = {
   Welcome: undefined;
   Login: undefined;
@@ -23,6 +25,9 @@ export type StackParamList = {
   Register4: undefined;
   PhoneSignUp: undefined;
   PhoneConfirm: undefined;
+  PhoneSignIn: undefined
+  PhoneSignInConfirm: undefined;
+  Home: undefined;
 };
 
 type StackNavigation = NativeStackNavigationProp<StackParamList>;
@@ -76,6 +81,21 @@ const Router = () => {
         name="PhoneConfirm"
         component={PhoneConfirm}
         options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="PhoneSignIn"
+        component={PhoneSignIn}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="PhoneSignInConfirm"
+        component={PhoneSignInConfirm}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{ headerShown: false, gestureEnabled: false }}
       />
     </Stack.Navigator>
   );
