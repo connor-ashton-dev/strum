@@ -15,7 +15,6 @@ const Welcome = ({ navigation }: StackNavigationProp) => {
   }
 
 
-
   return (
     <View className="flex-1 bg-theme-green items-center">
       <Image

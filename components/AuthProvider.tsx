@@ -8,9 +8,41 @@ import React, {
 } from 'react';
 import { supabase } from '../supabaseConfig';
 
+
+
+type User =
+  {
+    "age": string,
+    "audio": string,
+    "created_at": string,
+    "display_name": string,
+    "id": string,
+    "images": string[],
+    "location": string,
+    "matches": string[],
+    "username": string
+  }
+
+const blankUser: User = {
+  "age": "",
+  "audio": "",
+  "created_at": "",
+  "display_name": "",
+  "id": "",
+  "images": [],
+  "location": "",
+  "matches": [],
+  "username": ""
+}
+
+
+
+
 type AuthProps = {
   currentUser: any;
   setCurrentUser: React.Dispatch<React.SetStateAction<any>>;
+  loggedInUser: User
+  setLoggedInUser: React.Dispatch<React.SetStateAction<any>>;
   phoneNumber: any;
   setPhoneNumber: React.Dispatch<React.SetStateAction<any>>;
   name: any;
@@ -29,25 +61,28 @@ type AuthProps = {
 
 const AuthContext = createContext<AuthProps>({
   currentUser: null,
-  setCurrentUser: () => {},
+  setCurrentUser: () => { },
+  loggedInUser: blankUser,
+  setLoggedInUser: () => { },
   phoneNumber: null,
-  setPhoneNumber: () => {},
+  setPhoneNumber: () => { },
   name: null,
   username: null,
   age: null,
   location: null,
   images: null,
   recording: null,
-  setRecording: () => {},
-  setImages: () => {},
-  setUsername: () => {},
-  setName: () => {},
-  setAge: () => {},
-  setLocation: () => {},
+  setRecording: () => { },
+  setImages: () => { },
+  setUsername: () => { },
+  setName: () => { },
+  setAge: () => { },
+  setLocation: () => { },
 });
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [currUser, setCurrUser] = useState<any>(null);
+  const [loggedInUser, setLoggedInUser] = useState<any>(blankUser)
   const [phone, setPhone] = useState('');
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
@@ -65,6 +100,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       value={{
         currentUser: currUser,
         setCurrentUser: setCurrUser,
+        loggedInUser: loggedInUser,
+        setLoggedInUser: setLoggedInUser,
         phoneNumber: phone,
         setPhoneNumber: setPhone,
         name: name,
