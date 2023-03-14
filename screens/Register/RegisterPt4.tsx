@@ -74,9 +74,9 @@ const RegisterPt3 = ({ navigation }: StackNavigationProp) => {
   };
 
   const uploadImages = async () => {
-    for (const image of images) {
+    for (let i = 0; i < images; i++) {
       let name = uuid.v4() + '.jpg';
-      let encodedImage = image.base64;
+      let encodedImage = images[i].base64;
       const { data, error } = await supabase.storage
         .from('pictures')
         .upload(name, decode(encodedImage), {
