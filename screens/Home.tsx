@@ -106,9 +106,9 @@ const Home = ({ navigation }: StackNavigationProp) => {
       </View>
 
       {/* Bottom bar */}
-      <View className="h-28 bg-theme-green items-center justify-center">
+      <View className="h-28 bg-theme-green flex-row items-center justify-between px-4 gap-x-2">
         <TouchableOpacity
-          className="bg-white p-3 rounded-full "
+          className="bg-white p-3 rounded-full flex-1 items-center"
           onPress={() => {
             if (currImageIndex !== profileImages.length) {
               setCurrImageIndex(currImageIndex + 1);
@@ -117,7 +117,31 @@ const Home = ({ navigation }: StackNavigationProp) => {
             }
           }}
         >
-          <Text className="font-bold font-xl tracking-wide">Next Image</Text>
+          <Text className="font-bold font-xl tracking-wide">No thanks</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          className="bg-white p-3 rounded-full flex-1 items-center"
+          onPress={() => {
+            if (currImageIndex !== profileImages.length) {
+              setCurrImageIndex(currImageIndex + 1);
+            } else {
+              setCurrImageIndex(0);
+            }
+          }}
+        >
+          <Text className="font-bold font-xl tracking-wide">Next picture</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          className="bg-white p-3 rounded-full flex-1 items-center"
+          onPress={() => {
+            if (currImageIndex !== profileImages.length) {
+              setCurrImageIndex(currImageIndex + 1);
+            } else {
+              setCurrImageIndex(0);
+            }
+          }}
+        >
+          <Text className="font-bold font-xl tracking-wide">Like</Text>
         </TouchableOpacity>
       </View>
     </View>
