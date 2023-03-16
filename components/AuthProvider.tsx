@@ -1,47 +1,41 @@
-import { Session } from '@supabase/supabase-js';
+// import { Session } from '@supabase/supabase-js';
 import React, {
   createContext,
   ReactNode,
   useContext,
-  useEffect,
+  // useEffect,
   useState,
-} from 'react';
-import { supabase } from '../supabaseConfig';
+} from "react";
+import { supabase } from "../supabaseConfig";
 
-
-
-type User =
-  {
-    "age": string,
-    "audio": string,
-    "created_at": string,
-    "display_name": string,
-    "id": string,
-    "images": string[],
-    "location": string,
-    "matches": string[],
-    "username": string
-  }
+type User = {
+  age: string;
+  audio: string;
+  created_at: string;
+  display_name: string;
+  id: string;
+  images: string[];
+  location: string;
+  matches: string[];
+  username: string;
+};
 
 const blankUser: User = {
-  "age": "",
-  "audio": "",
-  "created_at": "",
-  "display_name": "",
-  "id": "",
-  "images": [],
-  "location": "",
-  "matches": [],
-  "username": ""
-}
-
-
-
+  age: "",
+  audio: "",
+  created_at: "",
+  display_name: "",
+  id: "",
+  images: [],
+  location: "",
+  matches: [],
+  username: "",
+};
 
 type AuthProps = {
   currentUser: any;
   setCurrentUser: React.Dispatch<React.SetStateAction<any>>;
-  loggedInUser: User
+  loggedInUser: User;
   setLoggedInUser: React.Dispatch<React.SetStateAction<any>>;
   phoneNumber: any;
   setPhoneNumber: React.Dispatch<React.SetStateAction<any>>;
@@ -61,33 +55,33 @@ type AuthProps = {
 
 const AuthContext = createContext<AuthProps>({
   currentUser: null,
-  setCurrentUser: () => { },
+  setCurrentUser: () => {},
   loggedInUser: blankUser,
-  setLoggedInUser: () => { },
+  setLoggedInUser: () => {},
   phoneNumber: null,
-  setPhoneNumber: () => { },
+  setPhoneNumber: () => {},
   name: null,
   username: null,
   age: null,
   location: null,
   images: null,
   recording: null,
-  setRecording: () => { },
-  setImages: () => { },
-  setUsername: () => { },
-  setName: () => { },
-  setAge: () => { },
-  setLocation: () => { },
+  setRecording: () => {},
+  setImages: () => {},
+  setUsername: () => {},
+  setName: () => {},
+  setAge: () => {},
+  setLocation: () => {},
 });
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [currUser, setCurrUser] = useState<any>(null);
-  const [loggedInUser, setLoggedInUser] = useState<any>(blankUser)
-  const [phone, setPhone] = useState('');
-  const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
-  const [age, setAge] = useState('');
-  const [location, setLocation] = useState('');
+  const [loggedInUser, setLoggedInUser] = useState<any>(blankUser);
+  const [phone, setPhone] = useState("");
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [age, setAge] = useState("");
+  const [location, setLocation] = useState("");
   const [images, setImages] = useState(null);
   const [recording, setRecording] = useState();
 
