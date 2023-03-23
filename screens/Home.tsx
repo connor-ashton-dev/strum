@@ -73,7 +73,6 @@ const Home = ({ navigation }: StackNavigationProp) => {
           contentFit="contain"
         />
       </View>
-
       {/* middle section */}
       <View className="flex-1  items-center justify-center">
         <Image
