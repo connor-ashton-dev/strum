@@ -9,7 +9,6 @@ export default function App() {
     <NavigationContainer>
       <AuthProvider>
         <Router />
-{/*ADDED A SILLY COMMENT HEE HEE*/}
         <StatusBar style="auto" />
         <Toast />
       </AuthProvider>
