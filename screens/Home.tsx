@@ -128,7 +128,7 @@ const Home = ({ navigation }: StackNavigationProp) => {
             }
           }}
         >
-          <Text className="font-bold font-xl tracking-wide">Next picture</Text>
+          <Text className="font-bold font-xl tracking-wide">Next</Text>
         </TouchableOpacity>
         <TouchableOpacity
           className="bg-white p-3 rounded-full flex-1 items-center"
